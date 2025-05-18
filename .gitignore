@@ -1,0 +1,102 @@
+# Kotlin/Java/Gradle
+.gradle/
+build/
+.idea/
+*.iml
+*.log
+local.properties
+.DS_Store
+
+# Kotlin Native
+*.konan/
+.konan/
+*.kexe
+*.exe
+*.dll
+*.dylib
+*.so
+
+# Android
+*.apk
+*.ap_
+*.aab
+.cxx/
+.externalNativeBuild/
+captures/
+output.json
+*.hprof
+*.jks
+*.keystore
+*.pem
+android/gradle.properties
+android/local.properties
+
+# Xcode (iOS/macOS)
+ios/Pods/
+ios/Podfile.lock
+ios/.symlinks/
+ios/Flutter/Generated.xcconfig
+ios/Runner.xcworkspace/
+ios/build/
+DerivedData/
+xcuserdata/
+*.xcuserstate
+*.xcworkspace
+*.xcodeproj/project.xcworkspace/xcuserdata/
+*.xcodeproj/xcuserdata/
+
+# Swift Package Manager
+.build/
+Packages/
+.swiftpm/
+*.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/
+.project.xcworkspace/xcshareddata/swiftpm/
+workspace.xcworkspace/xcshareddata/swiftpm/
+
+# Cocoapods
+ios/Pods/
+ios/.cocoapods/
+ios/Podfile.lock
+
+# Kotlin Multiplatform Mobile Cocoapods Plugin
+build/cocoapods/
+.idea/cocoapods/
+.gradle/kotlin/kpm/
+
+# SKIE
+build/skie/
+.idea/skie/
+
+# JetBrains IDEs
+*.iws
+out/
+.idea_modules/
+.idea/
+
+# VSCode
+.vscode/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Icon must end with two \r
+Icon
+
+# Trashes
+.Trashes
+
+# Files that might appear on external disks
+.Spotlight-V100
+.TemporaryItems
+.apdisk
+
+# Unit test snapshots
+__Snapshots__/
+
+# Kotlin compile output (optional)
+bin/
