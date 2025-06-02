@@ -29,6 +29,13 @@ class RocketComponent {
         return "${date.month} ${date.dayOfMonth}, ${date.year}"
     }
 
+    suspend fun fetchLaunch(): List<RocketLaunch> {
+        val rockets: List<RocketLaunch> =
+            httpClient.get("https://api.spacexdata.com/v4/launches").body()
+        val filteredRockets = rockets.filter { it.launchSuccess == true }
+        return  filteredRockets
+    }
+
     suspend fun launchPhrase(): String =
         try {
             "The last successful launch was on ${getDateOfLastSuccessfulLaunch()} 🚀"

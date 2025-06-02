@@ -4,8 +4,10 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    kotlin("plugin.serialization") version "2.1.10"
-    id("co.touchlab.skie") version "0.10.1"
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.room)
+    kotlin("plugin.serialization") version "2.1.21"
+    id("co.touchlab.skie") version "0.10.2"
 }
 
 kotlin {
@@ -39,6 +41,8 @@ kotlin {
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
+            implementation(libs.androidx.room.runtime)
+            implementation(libs.androidx.sqlite.bundled)
         }
         commonTest.dependencies {
             implementation(libs.kotlin.test)
@@ -52,6 +56,18 @@ kotlin {
     }
 }
 
+dependencies {
+    add("kspCommonMainMetadata", libs.androidx.room.compiler)
+    add("kspAndroid", libs.androidx.room.compiler)
+    add("kspIosSimulatorArm64", libs.androidx.room.compiler)
+    add("kspIosX64", libs.androidx.room.compiler)
+    add("kspIosArm64", libs.androidx.room.compiler)
+}
+
+room {
+    schemaDirectory ("$projectDir/schemas")
+}
+
 android {
     namespace = "com.jetbrains.greeting.shared"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
@@ -61,5 +77,11 @@ android {
     }
     defaultConfig {
         minSdk = libs.versions.android.minSdk.get().toInt()
+    }
+}
+
+skie {
+    features {
+        enableFlowCombineConvertorPreview = true
     }
 }
